@@ -21,7 +21,7 @@ function player_update(){
 }
 
 function new_image(get_image){
-    fabric.Image.fromURL("get_image",function(Img)
+    fabric.Image.fromURL(get_image,function(Img)
     {
     block_image_object=Img;
     block_image_object.scaleToWidth(block_image_width);
@@ -124,6 +124,51 @@ function my_keydown(e){
     if (keypressed=='67'){
         new_image('cloud.jpg');
         console.log("c");
-        
+
+    }}
+
+   function up(){
+       if (player_y>=0 )
+       {
+           player_y= player_y-block_image_hieght;
+           console.log("block_image_hieght=" +block_image_hieght);
+           console.log("When up is pressed,x="+player_x,"Y ="+player_y);
+           canvas.remove(player_object);
+           player_update();
+       }
+
+   }
+
+   function down(){
+    if (player_y<=500 )
+    {
+        player_y= player_y+block_image_hieght;
+        console.log("block_image_hieght=" + block_image_hieght);
+        console.log("When down is pressed,x="+player_x,"Y ="+player_y);
+        canvas.remove(player_object);
+        player_update();
     }
 }
+
+function left(){
+    if (player_x>0 )
+    {
+        player_x= player_x-block_image_hieght;
+        console.log("block_image_hieght=" +block_image_hieght);
+        console.log("When left is pressed,x="+player_x,"Y ="+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+
+function right(){
+    if (player_x<=850 )
+    {
+        player_x= player_x+block_image_hieght;
+        console.log("block_image_hieght=" +block_image_hieght);
+        console.log("When right is pressed,x="+player_x,"Y ="+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+   
